@@ -1,25 +1,26 @@
 #pragma once
+
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <string>
-using namespace std;
+
+
 
 struct USER
 {
 	int id = 0;
-	string username;
-	string password;
+	std::string username;
+	std::string password;
 	bool isAdmin = false;
-	string badges[20];
+	std::string badges[20];
 };
 
 struct POST
 {
-	string category;
-	string title;
-	string author;
-	string text;
-	string tags[4];
+	std::string category;
+	std::string title;
+	std::string author;
+	std::string text;
+	std::string tags[4];
 };
 

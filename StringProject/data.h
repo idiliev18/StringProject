@@ -7,6 +7,20 @@
 
 using namespace std;
 
+class DATA_LAYER
+{
+
+private:
+
+
+public:
+	vector<POST> posts;
+	vector<USER> users;
+
+	void inputElementsIntoVector();
+
+};
+
 void managingAccountsFunction(int choice);
 
 int tokenize(string line, string* results, char delimiter);
