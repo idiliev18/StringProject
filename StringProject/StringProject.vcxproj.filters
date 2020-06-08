@@ -32,8 +32,13 @@
     <ClInclude Include="data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pressentation.h">
+    <ClInclude Include="presentation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
