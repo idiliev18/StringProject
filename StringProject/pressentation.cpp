@@ -7,7 +7,7 @@
 #include "data.h"
 using namespace std;
 
-void Register() {
+void PRESENTATION_LAYER::Register() {
 	ofstream myfile("acc.txt", ios::app);
 	string username, password, c_password;
 	cout << endl;
@@ -36,7 +36,7 @@ void Register() {
 
 }
 
-void login() {
+void PRESENTATION_LAYER::login() {
 	string username, password, result = " invalidAccount";
 	char character;
 	cout << " Do you have existing account[Y/N]: ";
@@ -82,7 +82,7 @@ void login() {
 	}
 }
 
-void manageAccounts() {
+void PRESENTATION_LAYER::manageAccounts() {
 	int choice;
 	bool accManagmentMenu = true, userExist = false;
 	while (accManagmentMenu)
@@ -105,7 +105,7 @@ void manageAccounts() {
 		}
 		else if (choice > 0 && choice < 5)
 		{
-			managingAccountsFunction(choice);
+			da.managingAccountsFunction(choice);
 		}
 		cout << endl;
 	}

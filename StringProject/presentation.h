@@ -14,13 +14,11 @@ private:
 
 
 public:
+	DATA_LAYER da;
 	std::vector<POST> posts;
 	std::vector<USER> users;
-
+	void login();
+	void Register();
+	void manageAccounts();
 };
 
-void login();
-
-void Register();
-
-void manageAccounts();
