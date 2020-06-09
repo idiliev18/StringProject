@@ -59,7 +59,7 @@ void DATA_LAYER::inputElementsIntoVector()
 				getline(data, tokens1[i], '|');
 			}
 
-			
+
 
 			post.id = atoi(tokens1[0].c_str());
 			post.title = tokens1[1];
@@ -67,7 +67,7 @@ void DATA_LAYER::inputElementsIntoVector()
 			post.text = tokens1[3];
 			post.dateOfCreation = tokens1[4];
 
-			
+
 			int arrIndex = 0;
 			for (int i = 0; i < 4; i++)
 			{
@@ -91,7 +91,7 @@ void DATA_LAYER::inputElementsIntoVector()
 
 }
 
-int tokenize(string line, string* results, char delimiter) {
+int DATA_LAYER::tokenize(string line, string* results, char delimiter) {
 	string help;
 	int counter = 0, count = 0;
 	for (int i = 0; i < line.size(); i++)
@@ -107,7 +107,7 @@ int tokenize(string line, string* results, char delimiter) {
 	return counter;
 }
 
-void managingAccountsFunction(int choice) {
+void DATA_LAYER::managingAccountsFunction(int choice) {
 
 	ifstream myfile("acc.txt");
 	ofstream tmpFile("accTmp.txt");
@@ -117,220 +117,78 @@ void managingAccountsFunction(int choice) {
 	bool accManagmentMenu = true, userExist = false;
 	switch (choice)
 	{
-	case 1:
-		if (myfile.is_open())
-		{
-			while (myfile.good())
+		case 1:
+			if (myfile.is_open())
 			{
-				getline(myfile, tokens[0], ',');
-
-				help = tokens[0];
-
-				if (help == "") {}
-				else
+				while (myfile.good())
 				{
-					if (help[0] == '\n')
-					{
-						help.erase(0, 1);
-					}
-					cout << "          Username: " << help;
+					getline(myfile, tokens[0], ',');
 
-					getline(myfile, tokens[1], ',');
-					getline(myfile, tokens[2], ',');
+					help = tokens[0];
 
-					cout << " | Admin: ";
-
-					if (tokens[2] == "1")
-					{
-						cout << "True" << endl;
-					}
+					if (help == "") {}
 					else
 					{
-						cout << "False" << endl;
-					}
-				}
-			}
-		}
-		break;
-	case 2:
-		cout << "Name of user: ";
-		cin >> help;
-
-		if (myfile.is_open())
-		{
-			string line;
-			while (!myfile.eof())
-			{
-				getline(myfile, line);
-
-				if (line != "") {
-
-					tokenize(line, tokens, ',');
-
-					if (help != tokens[0]) {
-
-						if (tmpFile.is_open())
+						if (help[0] == '\n')
 						{
-							counter = 2;
-							tmpFile << tokens[counter] << "," << tokens[counter--] << "," << tokens[counter--] << "," << endl;
+							help.erase(0, 1);
 						}
+						cout << "          Username: " << help;
 
-					}
-					else
-					{
-						userExist = true;
-					}
-				}
-			}
-			myfile.close();
+						getline(myfile, tokens[1], ',');
+						getline(myfile, tokens[2], ',');
 
-			if (remove("acc.txt") != 0) {
-				cerr << "A wild error appeared: ";
-			}
-			else {
-				cout << "Deleting account 50% done" << endl;
-			}
+						cout << " | Admin: ";
 
-			tmpFile.close();
-
-			if (rename("accTmp.txt", "acc.txt") != 0)
-			{
-				cerr << "A wild error appeared : ";
-			}
-			else
-			{
-				cout << "Deleting account done!!!!" << endl;
-			}
-		}
-		break;
-	case 3:
-		cout << "Name of user: ";
-		cin >> help;
-
-		if (myfile.is_open())
-		{
-			string line;
-
-			while (!myfile.eof())
-			{
-				getline(myfile, line);
-
-				if (line != "") {
-					tokenize(line, tokens, ',');
-
-					if (help != tokens[0]) {
-
-						if (tmpFile.is_open())
-						{
-
-							tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << endl;
-						}
-
-					}
-					else
-					{
-						cout << "New username: ";
-						cin >> newUsername;
-						tmpFile << newUsername << "," << tokens[1] << "," << tokens[2] << "," << endl;
-						userExist = true;
-					}
-				}
-			}
-			if (!userExist)
-			{
-				cout << "This user doesn't exist, nothing happened" << endl;
-				myfile.close();
-				remove("acc.txt");
-				tmpFile.close();
-				rename("accTmp.txt", "acc.txt");
-
-			}
-			else
-			{
-				myfile.close();
-
-				if (remove("acc.txt") != 0) {
-					cerr << "A wild error appeared: ";
-				}
-				else {
-					cout << "Editing username 50% done!" << endl;
-				}
-
-				tmpFile.close();
-
-				if (rename("accTmp.txt", "acc.txt") != 0)
-				{
-					cerr << "A wild error appeared : ";
-				}
-				else
-				{
-					cout << "Editing username done!!!!" << endl;
-				}
-			}
-		}
-		break;
-
-	case 4:
-		cout << "Name of user: ";
-		cin >> help;
-		if (myfile.is_open())
-		{
-			string line;
-
-			while (!myfile.eof())
-			{
-				getline(myfile, line);
-
-				if (line != "") {
-
-					tokenize(line, tokens, ',');
-
-					if (help != tokens[0]) {
-
-						if (tmpFile.is_open())
-						{
-
-							tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << endl;
-						}
-					}
-					else
-					{
 						if (tokens[2] == "1")
 						{
+							cout << "True" << endl;
+						}
+						else
+						{
+							cout << "False" << endl;
+						}
+					}
+				}
+			}
+			break;
+		case 2:
+			cout << "Name of user: ";
+			cin >> help;
 
-							counter = 2;
-							tmpFile << tokens[0] << "," << tokens[1] << "," << "0" << "," << endl;
+			if (myfile.is_open())
+			{
+				string line;
+				while (!myfile.eof())
+				{
+					getline(myfile, line);
+
+					if (line != "") {
+
+						tokenize(line, tokens, ',');
+
+						if (help != tokens[0]) {
+
+							if (tmpFile.is_open())
+							{
+								counter = 2;
+								tmpFile << tokens[counter] << "," << tokens[counter--] << "," << tokens[counter--] << "," << endl;
+							}
 
 						}
 						else
 						{
-
-							counter = 2;
-							tmpFile << tokens[0] << "," << tokens[1] << "," << "1" << "," << endl;
-
+							userExist = true;
 						}
-						userExist = true;
 					}
 				}
-			}
-			if (!userExist)
-			{
-				cout << "This user doesn't exist, nothing happened" << endl;
-				myfile.close();
-				remove("acc.txt");
-				tmpFile.close();
-				rename("accTmp.txt", "acc.txt");
-
-			}
-			else
-			{
 				myfile.close();
 
 				if (remove("acc.txt") != 0) {
 					cerr << "A wild error appeared: ";
 				}
 				else {
-					cout << "Adding/Removing Admin 50% done!" << endl;
+					cout << "Deleting account 50% done" << endl;
 				}
 
 				tmpFile.close();
@@ -341,25 +199,167 @@ void managingAccountsFunction(int choice) {
 				}
 				else
 				{
-					cout << "Adding/Removing Admin done!!!!" << endl;
+					cout << "Deleting account done!!!!" << endl;
 				}
 			}
-		}
-		break;
+			break;
+		case 3:
+			cout << "Name of user: ";
+			cin >> help;
 
-	case 9:
-		myfile.close();
-		accManagmentMenu = false;
+			if (myfile.is_open())
+			{
+				string line;
 
-		break;
+				while (!myfile.eof())
+				{
+					getline(myfile, line);
 
-	default:
-		break;
+					if (line != "") {
+						tokenize(line, tokens, ',');
+
+						if (help != tokens[0]) {
+
+							if (tmpFile.is_open())
+							{
+
+								tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << endl;
+							}
+
+						}
+						else
+						{
+							cout << "New username: ";
+							cin >> newUsername;
+							tmpFile << newUsername << "," << tokens[1] << "," << tokens[2] << "," << endl;
+							userExist = true;
+						}
+					}
+				}
+				if (!userExist)
+				{
+					cout << "This user doesn't exist, nothing happened" << endl;
+					myfile.close();
+					remove("acc.txt");
+					tmpFile.close();
+					rename("accTmp.txt", "acc.txt");
+
+				}
+				else
+				{
+					myfile.close();
+
+					if (remove("acc.txt") != 0) {
+						cerr << "A wild error appeared: ";
+					}
+					else {
+						cout << "Editing username 50% done!" << endl;
+					}
+
+					tmpFile.close();
+
+					if (rename("accTmp.txt", "acc.txt") != 0)
+					{
+						cerr << "A wild error appeared : ";
+					}
+					else
+					{
+						cout << "Editing username done!!!!" << endl;
+					}
+				}
+			}
+			break;
+
+		case 4:
+			cout << "Name of user: ";
+			cin >> help;
+			if (myfile.is_open())
+			{
+				string line;
+
+				while (!myfile.eof())
+				{
+					getline(myfile, line);
+
+					if (line != "") {
+
+						tokenize(line, tokens, ',');
+
+						if (help != tokens[0]) {
+
+							if (tmpFile.is_open())
+							{
+
+								tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << endl;
+							}
+						}
+						else
+						{
+							if (tokens[2] == "1")
+							{
+
+								counter = 2;
+								tmpFile << tokens[0] << "," << tokens[1] << "," << "0" << "," << endl;
+
+							}
+							else
+							{
+
+								counter = 2;
+								tmpFile << tokens[0] << "," << tokens[1] << "," << "1" << "," << endl;
+
+							}
+							userExist = true;
+						}
+					}
+				}
+				if (!userExist)
+				{
+					cout << "This user doesn't exist, nothing happened" << endl;
+					myfile.close();
+					remove("acc.txt");
+					tmpFile.close();
+					rename("accTmp.txt", "acc.txt");
+
+				}
+				else
+				{
+					myfile.close();
+
+					if (remove("acc.txt") != 0) {
+						cerr << "A wild error appeared: ";
+					}
+					else {
+						cout << "Adding/Removing Admin 50% done!" << endl;
+					}
+
+					tmpFile.close();
+
+					if (rename("accTmp.txt", "acc.txt") != 0)
+					{
+						cerr << "A wild error appeared : ";
+					}
+					else
+					{
+						cout << "Adding/Removing Admin done!!!!" << endl;
+					}
+				}
+			}
+			break;
+
+		case 9:
+			myfile.close();
+			accManagmentMenu = false;
+
+			break;
+
+		default:
+			break;
 	}
 	myfile.close();
 }
 
-string checkAcc(string username, string password)
+string DATA_LAYER::checkAcc(string username, string password)
 {
 	ifstream myfile("acc.txt");
 	string line[20];

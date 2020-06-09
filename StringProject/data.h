@@ -19,12 +19,9 @@ public:
 
 	void inputElementsIntoVector();
 	string getTodaysDate();
-
+	void managingAccountsFunction(int);
+	int tokenize(string, string*, char);
+	string checkAcc(string, string);
 
 };
 
-void managingAccountsFunction(int choice);
-
-int tokenize(string line, string* results, char delimiter);
-
-string checkAcc(string username, string password);
