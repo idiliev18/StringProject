@@ -111,3 +111,34 @@ void PRESENTATION_LAYER::manageAccounts() {
 	}
 
 }
+
+
+void PRESENTATION_LAYER::mainMenu() {
+	int choice;
+	bool accManagmentMenu = true, userExist = false;
+	while (accManagmentMenu)
+	{
+		userExist = false;
+		cout << "                      +-------------------+" << endl;
+		cout << "                      |     Main Menu     |" << endl;
+		cout << "                      +                   +" << endl;
+		cout << " +---------------------                   -------------------+" << endl;
+		cout << " |                                                           |" << endl;
+		cout << " |          1.                   2.                 9.       |" << endl;
+		cout << " |    Show all posts      Show categories        Go back     |" << endl;
+		cout << " |                                                           |" << endl;
+		cout << " +-----------------------------------------------------------+\n" << endl;
+		cout << " Choose option: ";
+		cin >> choice;
+		if (choice == 9)
+		{
+			//go to menu
+		}
+		else if (choice > 0 && choice < 2)
+		{
+			managingAccountsFunction(choice);
+		}
+		cout << endl;
+	}
+
+}
