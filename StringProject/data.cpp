@@ -12,28 +12,42 @@ void DATA_LAYER::inputElementsIntoVector()
 	fstream data;
 	data.open("Text.txt"); // File Name
 	string tokens1[10];
+	string categoryTokens[5];
+	string tokens2[10];
 
 	if (data.is_open())
 	{
 		while (!data.eof())
 		{
-			for (int i = 0; i < 4; i++)
-			{
-				getline(data, tokens1[i], ',');
-			}
-
 			POST post;
 
-			post.category = tokens1[0];
+			for (int i = 0; i < 4; i++)
+			{
+				getline(data, categoryTokens[i], '~');
+			}
+			post.category.id = atoi(categoryTokens[0].c_str());
+			post.category.categoryName = categoryTokens[1];
+			post.category.author = categoryTokens[2];
+			post.category.dateOfCreation = categoryTokens[3];
+
+			for (int i = 0; i < 5; i++)
+			{
+				getline(data, tokens1[i], '|');
+			}
+
+			
+
+			post.id = atoi(tokens1[0].c_str());
 			post.title = tokens1[1];
 			post.author = tokens1[2];
 			post.text = tokens1[3];
+			post.dateOfCreation = tokens1[4];
 
-			string tokens2[10];
+			
 			int arrIndex = 0;
 			for (int i = 0; i < 4; i++)
 			{
-				getline(data, tokens2[i], '|');
+				getline(data, tokens2[i], '}');
 
 				if (tokens2[i] != "") {
 					post.tags[arrIndex++] = tokens2[i];
@@ -45,7 +59,7 @@ void DATA_LAYER::inputElementsIntoVector()
 
 			posts.push_back(post);
 
-			ws(data);
+			//ws(data);
 
 		}
 	}

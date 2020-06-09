@@ -17,7 +17,8 @@ using namespace std;
 
 int main()
 {
-	
+	DATA_LAYER ds;
+	ds.inputElementsIntoVector();
 }
 
 // FOR DEBUGIN LOGIN/REGISTER

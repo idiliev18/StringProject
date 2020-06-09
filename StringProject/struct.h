@@ -4,7 +4,13 @@
 #include <vector>
 #include <string>
 
-
+struct CATEGORY 
+{
+	int id = 0;
+	std::string categoryName;
+	std::string author;
+	std::string dateOfCreation;
+};
 
 struct USER
 {
@@ -17,10 +23,12 @@ struct USER
 
 struct POST
 {
-	std::string category;
+	CATEGORY category;
+	int id = 0;
 	std::string title;
 	std::string author;
 	std::string text;
+	std::string dateOfCreation;
 	std::string tags[4];
 };
 
