@@ -18,6 +18,8 @@ public:
 	vector<USER> users;
 
 	void inputElementsIntoVector();
+	string getTodaysDate();
+
 
 };
 

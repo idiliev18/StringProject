@@ -2,10 +2,34 @@
 #include <iostream>
 #include "struct.h"
 #include <fstream>
+#include <ctime>
 #include <vector>
 #include <string>
 #include "data.h"
 using namespace std;
+
+string DATA_LAYER::getTodaysDate()
+{
+	time_t t = time(NULL);
+	tm tPtr{ 0 };
+	errno_t err = localtime_s(&tPtr, &t);
+
+	int day, month, year;
+	string dayS, monthS, yearS, date;
+
+	day = (tPtr.tm_mday);
+	month = (tPtr.tm_mon) + 1;
+	year = (tPtr.tm_year) + 1900;
+
+	dayS = to_string(day);
+	monthS = to_string(month);
+	/*if (monthS.length() > 1)
+		monthS = "0" + monthS;*/
+
+	yearS = to_string(year);
+
+	return yearS + '-' + monthS + '-' + dayS;
+}
 
 void DATA_LAYER::inputElementsIntoVector()
 {
