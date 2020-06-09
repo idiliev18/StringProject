@@ -64,9 +64,9 @@ void PRESENTATION_LAYER::login() {
 			cin >> password;
 			cout << endl;
 			cout << " ________________________________________________\n" << endl;
-			result = checkAcc(username, password);
+			result = data.checkAcc(username, password);
 		}
-		if (checkAcc(username, password) == "1")
+		if (data.checkAcc(username, password) == "1")
 		{
 
 		}
@@ -105,13 +105,12 @@ void PRESENTATION_LAYER::manageAccounts() {
 		}
 		else if (choice > 0 && choice < 5)
 		{
-			da.managingAccountsFunction(choice);
+			data.managingAccountsFunction(choice);
 		}
 		cout << endl;
 	}
 
 }
-
 
 void PRESENTATION_LAYER::mainMenu() {
 	int choice;
@@ -134,9 +133,10 @@ void PRESENTATION_LAYER::mainMenu() {
 		{
 			//go to menu
 		}
+
 		else if (choice > 0 && choice < 2)
 		{
-			managingAccountsFunction(choice);
+			data.managingAccountsFunction(choice);
 		}
 		cout << endl;
 	}
