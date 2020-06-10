@@ -189,3 +189,37 @@ bool PRESENTATION_LAYER::categoriesMenu()
 	return true;
 }
 
+void PRESENTATION_LAYER::profileMenu() {
+	int choice;
+
+		cout << "\n             +-----------------------------------------+" << endl;
+		cout << "             |                 Username                |" << endl;
+		cout << "             +-----------------------------------------+" << endl;
+		cout << endl;
+		cout << " +------------------------------------+ " << endl;
+		cout << " |               Badges:              | " << endl;
+		cout << " |                                    | " << "       +---------------------+" << endl;
+		cout << " |                                    | " << "       |       9.Back        |" << endl;
+		cout << " |                                    | " << "       +---------------------+" << endl;
+		cout << " |                                    | " << endl;
+		cout << " |                                    | " << endl;
+		cout << " +------------------------------------+ \n" << endl;
+		cout << " Click 9 to back: "; cin >> choice;
+		
+
+		while (choice != 9) {
+
+			cout << "\n Incorrect input, please try again:"; cin >> choice;
+
+		}
+
+		cout << "\n______________________________________________________________________________" << endl;
+
+		switch (choice) {
+
+			case 9:
+				break;
+
+		}
+
+}
