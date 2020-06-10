@@ -142,3 +142,47 @@ void PRESENTATION_LAYER::mainMenu() {
 	}
 
 }
+
+bool PRESENTATION_LAYER::categoriesMenu() {
+	int choice;
+
+		cout << "                   +-------------------------+" << endl;
+		cout << "                   |     Categories Menu     |" << endl;
+		cout << "                   +-------------------------+" << endl;
+		cout << endl;
+		cout << " +-----------------------------------------------------------+" << endl;
+		cout << " |                                                           |" << endl;
+		cout << " |                   1.                                      |" << endl;
+		cout << " |                   2.                                      |" << endl;
+		cout << " |                   3.                                      |" << endl;
+		cout << " |                   4.                                      |" << endl;
+		cout << " |                   5.                                      |" << endl;
+		cout << " |                   9.Exit                                  |" << endl;
+		cout << " |                                                           |" << endl;
+		cout << " +-----------------------------------------------------------+\n" << endl;
+		cout << " Choose option: ";
+		cin >> choice;
+
+		while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 9) {
+		
+			cout << "\n Incorect input, please try again: "; cin >> choice;
+		
+		}
+
+		switch (choice) {
+
+		case 1: return true;
+			break;
+		case 2: return true;
+			break;
+		case 3: return true;
+			break;
+		case 4: return true;
+			break;
+		case 5: return true;
+			break;
+		case 9: return false;
+			break;
+		}
+	return true;
+}
