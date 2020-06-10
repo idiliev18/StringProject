@@ -111,10 +111,10 @@ void DATA_LAYER::managingAccountsFunction(int choice) {
 
 	ifstream myfile("acc.txt");
 	ofstream tmpFile("accTmp.txt");
-	string tokens[10], help, newUsername;
-	int counter = 0, checkCounter = 0;
+	string tokens[10], help, newUsername, badgeName, badges[20];
+	int counter = 0, checkCounter = 0, badgeChoice;
 	string line;
-	bool accManagmentMenu = true, userExist = false;
+	bool accManagmentMenu = true, userExist = false, badgeExist = false;
 	switch (choice)
 	{
 		case 1:
@@ -346,7 +346,123 @@ void DATA_LAYER::managingAccountsFunction(int choice) {
 				}
 			}
 			break;
+		case 5:
+			cout << "1) Delete badge" << endl << "2) Add badge" << endl << "Choice: ";
+			cin >> badgeChoice;
+			cout << "Name of user: ";
+			cin >> help;
+			if (myfile.is_open())
+			{
+				string line;
 
+				while (!myfile.eof())
+				{
+					getline(myfile, line);
+
+					if (line != "") {
+
+						tokenize(line, tokens, ',');
+
+						if (help != tokens[0]) {
+
+							if (tmpFile.is_open())
+							{
+
+								tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << tokens[3] << "," << endl;
+							}
+
+
+						}
+						else
+						{
+							counter = tokenize(tokens[3], badges, '^');
+							if (tmpFile.is_open())
+							{
+								tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << ",";
+							}
+							if (badgeChoice == 1)
+							{
+								cout << "Name of the badge you want to delete: ";
+								cin >> badgeName;
+								for (int i = 0; i < counter; i++)
+								{
+									if (badges[i] == badgeName)
+									{
+										badgeExist = true;
+									}
+									else
+									{
+										tmpFile << badges[i] << "^";
+									}
+								}
+								tmpFile << "," << endl;
+							}
+							else
+							{
+								cout << "Name of the badge you want to add: ";
+								cin >> badgeName;
+								if (tmpFile.is_open())
+								{
+									tmpFile << tokens[3] << badgeName << "^" << "," << endl;
+								}
+								/*for (int i = 0; i < badgeName.length()+1; i++)
+								{
+									if (badges[i] == badgeName)
+									{
+										badgeExist = true;
+									}
+									else
+									{
+										tmpFile << "^" << badges[i];
+									}
+								}*/
+							}
+							userExist = true;
+						}
+					}
+				}
+				if (!userExist || !userExist && !badgeChoice)
+				{
+					if (badgeChoice == 1) {
+						cout << "This user doesn't exist, nothing happened" << endl;
+						myfile.close();
+						remove("acc.txt");
+						tmpFile.close();
+						rename("accTmp.txt", "acc.txt");
+					}
+					else
+					{
+						cout << "This user doesn't exist, nothing happened" << endl;
+						myfile.close();
+						remove("acc.txt");
+						tmpFile.close();
+						rename("accTmp.txt", "acc.txt");
+					}
+				}
+				else
+				{
+					myfile.close();
+
+					if (remove("acc.txt") != 0) {
+						cerr << "A wild error appeared: ";
+					}
+					else {
+						cout << "Adding/Removing badge 50% done!" << endl;
+					}
+
+					tmpFile.close();
+
+					if (rename("accTmp.txt", "acc.txt") != 0)
+					{
+						cerr << "A wild error appeared : ";
+					}
+					else
+					{
+						cout << "Adding/Removing badge done!!!!" << endl;
+					}
+				}
+			}
+			break;
 		case 9:
 			myfile.close();
 			accManagmentMenu = false;

@@ -18,7 +18,26 @@ using namespace std;
 int main()
 {
 	DATA_LAYER ds;
-	ds.createCategory("pesho","haka","da");
+	PRESENTATION_LAYER ps;
+	//ds.createCategory("pesho","haka","da");
+	int choice;
+	cout << "1. LOGIN" << endl << "2. REGISTER" << endl << "3. ADMIN" << endl<<"choice: ";
+	cin >> choice;
+	switch (choice)
+	{
+	case 1:
+		ps.login();
+		break;
+	case 2:
+		ps.Register();
+		break;
+	case 3:
+		ps.manageAccounts();
+		break;
+	default:
+		return 0;
+		break;
+	}
 }
 
 // FOR DEBUGIN LOGIN/REGISTER

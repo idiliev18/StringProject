@@ -31,7 +31,7 @@ void PRESENTATION_LAYER::Register() {
 	}
 
 	cout << endl;
-	myfile << endl << username << "," << password << ",0,";
+	myfile << endl << username << "," << password << ",0,Member^,";
 	myfile.close();
 
 }
@@ -95,6 +95,7 @@ void PRESENTATION_LAYER::manageAccounts() {
 		cout << " |                2. Delete account                   |" << endl;
 		cout << " |                3. Edit username                    |" << endl;
 		cout << " |                4. Remove/Add Admin                 |" << endl;
+		cout << " |                5. Manage badges                    |" << endl;
 		cout << " |                9. Go back                          |" << endl;
 		cout << " +----------------------------------------------------+\n" << endl;
 		cout << " Choose option: ";
@@ -103,7 +104,7 @@ void PRESENTATION_LAYER::manageAccounts() {
 		{
 			//go to menu
 		}
-		else if (choice > 0 && choice < 5)
+		else if (choice > 0 && choice < 6)
 		{
 			data.managingAccountsFunction(choice);
 		}
