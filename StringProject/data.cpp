@@ -394,6 +394,14 @@ string DATA_LAYER::checkAcc(string username, string password)
 	return "invalidAccount";
 }
 
+void DATA_LAYER::saveIncrementetCategoryIdValue()
+{
+	ofstream myfile;
+	myfile.open("categoryId.txt");
+	myfile << categoryId-1;
+	myfile.close();
+}
+
 string DATA_LAYER::getCategoryId()
 {
 	string line;
@@ -431,12 +439,12 @@ void DATA_LAYER::createCategory(string categoryName, string author, string dateO
 		cerr << "Error in creating file!!!";
 		
 	}
-
-	cout << "File created successfully.";
+	cout << "Complete";
 
 
 	file.close();
 	categoryId++;
+	saveIncrementetCategoryIdValue();
 }
 
 

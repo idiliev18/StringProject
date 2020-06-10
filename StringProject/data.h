@@ -26,6 +26,6 @@ public:
 	void managingAccountsFunction(int);
 	int tokenize(string, string*, char);
 	string checkAcc(string, string);
-
+	void saveIncrementetCategoryIdValue();
 };
 

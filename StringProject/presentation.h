@@ -22,5 +22,6 @@ public:
 	void Register();
 	void manageAccounts();
 	void mainMenu();
+	bool categoriesMenu();
 };
 
