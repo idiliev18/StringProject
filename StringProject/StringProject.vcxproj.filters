@@ -43,5 +43,8 @@
     <Text Include="acc.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="categoryId.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

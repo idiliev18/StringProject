@@ -394,4 +394,49 @@ string DATA_LAYER::checkAcc(string username, string password)
 	return "invalidAccount";
 }
 
+string DATA_LAYER::getCategoryId()
+{
+	string line;
+	ifstream myfile;
+	myfile.open("categoryId.txt");
+	if (myfile.is_open()) {
+		while (getline(myfile, line))
+		{
+			return line;
+		}
+		myfile.close();
+	}
+	return "-1";
+}
+
+void DATA_LAYER::createCategory(string categoryName, string author, string dateOfCreation)
+{
+	categoryId = atoi(getCategoryId().c_str()) + 1;
+	CATEGORY category;
+	string fileName = to_string(categoryId) + ".txt";
+
+	category.id = categoryId;
+	category.categoryName = categoryName;
+	category.author = author;
+	category.dateOfCreation = dateOfCreation;
+	
+	categories.push_back(category);
+
+	fstream file;
+ 
+	file.open(fileName, ios::out);
+
+	if (!file)
+	{
+		cerr << "Error in creating file!!!";
+		
+	}
+
+	cout << "File created successfully.";
+
+
+	file.close();
+	categoryId++;
+}
+
 

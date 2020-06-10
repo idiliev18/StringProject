@@ -16,7 +16,11 @@ private:
 public:
 	vector<POST> posts;
 	vector<USER> users;
+	vector<CATEGORY> categories;
+	short categoryId;
 
+	string getCategoryId();
+	void createCategory(string, string, string);
 	void inputElementsIntoVector();
 	string getTodaysDate();
 	void managingAccountsFunction(int);

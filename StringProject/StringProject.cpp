@@ -18,7 +18,7 @@ using namespace std;
 int main()
 {
 	DATA_LAYER ds;
-	ds.inputElementsIntoVector();
+	ds.createCategory("pesho","haka","da");
 }
 
 // FOR DEBUGIN LOGIN/REGISTER
