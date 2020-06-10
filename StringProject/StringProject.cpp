@@ -21,7 +21,7 @@ int main()
 	PRESENTATION_LAYER ps;
 	//ds.createCategory("pesho","haka","da");
 	int choice;
-	cout << "1. LOGIN" << endl << "2. REGISTER" << endl << "3. ADMIN" << endl<<"choice: ";
+	cout << "1. LOGIN" << endl << "2. REGISTER" << endl << "3. ADMIN" << endl<<"4. POST"<<endl<<"choice: ";
 	cin >> choice;
 	switch (choice)
 	{
@@ -33,6 +33,9 @@ int main()
 		break;
 	case 3:
 		ps.manageAccounts();
+		break;
+	case 4:
+		ds.getPostInfo();
 		break;
 	default:
 		return 0;

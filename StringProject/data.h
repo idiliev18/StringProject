@@ -18,6 +18,7 @@ public:
 	vector<USER> users;
 	vector<CATEGORY> categories;
 	short categoryId;
+	SESSION	sess;
 
 	string getCategoryId();
 	void createCategory(string, string, string);
@@ -27,5 +28,7 @@ public:
 	int tokenize(string, string*, char);
 	string checkAcc(string, string);
 	void saveIncrementetCategoryIdValue();
+	void getPostInfo();
+	void post(POST, string);
 };
 

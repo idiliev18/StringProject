@@ -12,6 +12,12 @@ struct CATEGORY
 	std::string dateOfCreation;
 };
 
+struct SESSION
+{
+	bool logged;
+	std::string name;
+};
+
 struct USER
 {
 	int id = 0;

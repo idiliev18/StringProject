@@ -1,0 +1,3 @@
+ZAGLAVIE|pesho|nqkvaData|
+id|zaglaviePost|avtor|text|data|tag1^tag2^tag3^|
+1|Zaglavie|test|tova e text|2020-6-11|obicham^tagove^shtoto^

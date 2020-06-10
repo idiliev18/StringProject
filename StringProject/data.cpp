@@ -563,4 +563,58 @@ void DATA_LAYER::createCategory(string categoryName, string author, string dateO
 	saveIncrementetCategoryIdValue();
 }
 
+void DATA_LAYER::post(POST post,string cat) {
+	ofstream myfile(cat,ios::app);
+	string line;
+	if (myfile.is_open())
+	{
+		myfile << "1|" << post.title << "|" << post.author << "|"
+		<< post.text << "|" << post.dateOfCreation << "|";
+		for (int i = 0; i < 3; i++)
+		{
+			myfile << post.tags[i] << "^";
+		}
+		myfile <<"|"<< endl;
+	}
+}
 
+void DATA_LAYER::getPostInfo() {
+	string cat = "1.txt";
+	DATA_LAYER::sess.logged;
+	if (true)
+	{
+		int count=0,choice;
+		POST post;
+		string tags;
+		cout<<"Title: ";
+		cin.ignore();
+		getline(cin, post.title);
+		//post.author = sess.name;
+		post.author = "test";
+		cout << "Text: ";
+		getline(cin, post.text);
+		post.dateOfCreation = getTodaysDate();
+		cout << "Tags: ";
+		getline(cin, tags);
+		count = tokenize(tags, post.tags, ' ');
+		cout << "Are you sure you want to post this."<<endl;
+		cout << "Title: " << post.title << endl;
+		cout << "text: " << post.text << endl<<"Tags: ";
+		for (int i = 0; i < count; i++)
+		{
+			cout << post.tags[i] << " ";
+		}
+		cout << endl << "1. Post" << endl << "2. Cancel"<<endl<<"Choice: ";
+		cin >> choice;
+		if (choice==1)
+		{
+			DATA_LAYER::post(post,cat);
+		}
+	}
+	/*else
+	{
+		cout << "You must be logged to post"<<endl;
+		PRESENTATION_LAYER::login;
+	}*/
+	
+}

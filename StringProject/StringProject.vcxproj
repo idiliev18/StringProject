@@ -157,6 +157,7 @@
     <ClInclude Include="struct.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="1.txt" />
     <Text Include="acc.txt" />
     <Text Include="categoryId.txt" />
     <Text Include="Text.txt" />
