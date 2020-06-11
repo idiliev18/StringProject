@@ -30,5 +30,8 @@ public:
 	void saveIncrementetCategoryIdValue();
 	void getPostInfo();
 	void post(POST, string);
+	void showCategories();
+	void enterCategory();
+	void browsingCategory();
 };
 

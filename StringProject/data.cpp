@@ -563,6 +563,55 @@ void DATA_LAYER::createCategory(string categoryName, string author, string dateO
 	saveIncrementetCategoryIdValue();
 }
 
+void DATA_LAYER::showCategories() {
+	int id = atoi(getCategoryId().c_str()) ;
+	string file,line,tokens[10];
+	for (int i = 1; i <= id; i++)
+	{
+		file = to_string(i)+".txt";
+		ifstream myfile(file);
+		if (myfile.is_open())
+		{
+			getline(myfile, line);
+			tokenize(line, tokens, '|');
+			cout << i << ". " << tokens[0]<<endl;
+		}
+	}
+	browsingCategory();
+}
+
+void DATA_LAYER::browsingCategory() {
+	sess.currCategory = 1;
+	string file = to_string(sess.currCategory)+".txt",line;
+	ifstream myfile(file);
+	if (myfile.is_open())
+	{
+		string line, tokens[10];
+		getline(myfile, line);
+		while (!myfile.eof())
+		{
+			getline(myfile, line);
+
+			if (line != "") {
+				getline(myfile, line);
+				tokenize(line, tokens, '|');
+				cout << "Title: " << tokens[0] << endl
+					<< "Text: " << tokens[1] << endl
+					<< "Date: " << tokens[2] << endl<<endl;
+			}
+		}
+	}
+}
+
+void DATA_LAYER::enterCategory() {
+	string choice;
+	showCategories();
+	cout << "Type the number of the category you want view: ";
+	cin >> choice;
+	sess.currCategory = atoi(choice.c_str());
+
+}
+
 void DATA_LAYER::post(POST post,string cat) {
 	ofstream myfile(cat,ios::app);
 	string line;

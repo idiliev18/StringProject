@@ -23,5 +23,6 @@ public:
 	void manageAccounts();
 	void mainMenu();
 	bool categoriesMenu();
+	void profileMenu();
 };
 

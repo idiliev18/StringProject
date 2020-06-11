@@ -158,6 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="1.txt" />
+    <Text Include="2.txt" />
+    <Text Include="3.txt" />
     <Text Include="acc.txt" />
     <Text Include="categoryId.txt" />
     <Text Include="Text.txt" />

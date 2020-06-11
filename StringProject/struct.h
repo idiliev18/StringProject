@@ -16,6 +16,7 @@ struct SESSION
 {
 	bool logged;
 	std::string name;
+	int currCategory;
 };
 
 struct USER
