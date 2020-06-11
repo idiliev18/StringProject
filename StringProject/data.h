@@ -33,5 +33,10 @@ public:
 	void showCategories();
 	void enterCategory();
 	void browsingCategory();
+	void deleteAccount();
+	void editUsername();
+	void manageAdminUsers();
+	void showAccounts();
+	void manageBadges();
 };
 
