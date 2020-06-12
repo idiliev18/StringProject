@@ -8,6 +8,12 @@
 #include "POST.h"
 using namespace std;
 
+
+POST::POST()
+{
+	cat.loadCategoryData();
+}
+
 string POST::getTodaysDate()
 {
 	time_t t = time(NULL);

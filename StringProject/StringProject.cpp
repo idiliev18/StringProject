@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 #include "data.h"
+#include "POST.h"
+#include "CATEGORY.h"
 using namespace std;
 
 

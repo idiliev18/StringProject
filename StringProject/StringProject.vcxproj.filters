@@ -30,6 +30,9 @@
     <ClCompile Include="POST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MENU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="struct.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="POST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MENU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
