@@ -36,10 +36,10 @@ int main()
 		ps.manageAccounts();
 		break;
 	case 4:
-		ds.getPostInfo();
+		//ds.getPostInfo();
 		break;
 	case 5:
-		ds.showCategories();
+		//ds.showCategories();
 		break;
 	default:
 		return 0;

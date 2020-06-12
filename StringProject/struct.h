@@ -23,16 +23,16 @@ struct USER
 
 struct CATEGORY_ITEM {
 	int id = 0;
-	string name;
+	std::string name;
 };
 
 struct POST_ITEM {
 	int id = 0;
-	string title;
-	string author;
-	string text;
-	string dateOfCreation;
+	std::string title;
+	std::string author;
+	std::string text;
+	std::string dateOfCreation;
 	int categoryId = 0;
-	string tags[5];
+	std::string tags[5];
 };
 
