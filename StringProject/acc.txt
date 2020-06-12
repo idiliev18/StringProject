@@ -1,4 +1,0 @@
-TEST,TEST,0,obicham^test^,
-pesho,haka,0,Member^,
-ilian,chalgata,0,Member^chalga^,
-test,kartofi,0,Member^,
