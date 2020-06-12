@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 #include "data.h"
+#include <cerrno>
+#include <errno.h>
 using namespace std;
 
 string DATA_LAYER::getTodaysDate()
@@ -56,8 +58,8 @@ void DATA_LAYER::deleteAccount() {
 
 					if (tmpFile.is_open())
 					{
-						counter = 2;
-						tmpFile << tokens[counter] << "," << tokens[counter--] << "," << tokens[counter--] << "," << endl;
+						counter = 3;
+						tmpFile << tokens[counter] << "," << tokens[counter--] << "," << tokens[counter--] << "," <<tokens[counter--]<<","<< endl;
 					}
 
 				}
@@ -67,20 +69,28 @@ void DATA_LAYER::deleteAccount() {
 				}
 			}
 		}
+		tmpFile.close();
 		myfile.close();
+				
+		char buff[256];
+
+		strerror_s(buff, 25);
+		cerr << "A wild error appeared: " << buff << endl;
 
 		if (remove("acc.txt") != 0) {
-			cerr << "A wild error appeared: ";
+			strerror_s(buff, 25);
+			cerr << "A wild error appeared: " << buff<<endl;
 		}
 		else {
 			cout << "Deleting account 50% done" << endl;
 		}
 
-		tmpFile.close();
+		
 
 		if (rename("accTmp.txt", "acc.txt") != 0)
 		{
-			cerr << "A wild error appeared : ";
+			strerror_s(buff, 25);
+			cerr << "A wild error appeared : "<<buff<<endl;
 		}
 		else
 		{
@@ -116,7 +126,7 @@ void DATA_LAYER::editUsername() {
 					if (tmpFile.is_open())
 					{
 
-						tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << endl;
+						tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << tokens[3] << ","<< endl;
 					}
 
 				}
@@ -124,7 +134,7 @@ void DATA_LAYER::editUsername() {
 				{
 					cout << "New username: ";
 					cin >> newUsername;
-					tmpFile << newUsername << "," << tokens[1] << "," << tokens[2] << "," << endl;
+					tmpFile << newUsername << "," << tokens[1] << "," << tokens[2] << "," <<tokens[3]<<","<< endl;
 					userExist = true;
 				}
 			}
@@ -186,11 +196,11 @@ void DATA_LAYER::manageAdminUsers() {
 				tokenize(line, tokens, ',');
 
 				if (help != tokens[0]) {
-
+					
 					if (tmpFile.is_open())
 					{
 
-						tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," << endl;
+						tmpFile << tokens[0] << "," << tokens[1] << "," << tokens[2] << "," <<tokens[3]<<","<< endl;
 					}
 				}
 				else
@@ -199,14 +209,14 @@ void DATA_LAYER::manageAdminUsers() {
 					{
 
 						counter = 2;
-						tmpFile << tokens[0] << "," << tokens[1] << "," << "0" << "," << endl;
+						tmpFile << tokens[0] << "," << tokens[1] << "," << "0" << "," <<tokens[3] << "," << endl;
 
 					}
 					else
 					{
 
 						counter = 2;
-						tmpFile << tokens[0] << "," << tokens[1] << "," << "1" << "," << endl;
+						tmpFile << tokens[0] << "," << tokens[1] << "," << "1" << "," << tokens[3] << "," << endl;
 
 					}
 					userExist = true;
@@ -381,7 +391,9 @@ void DATA_LAYER::showAccounts() {
 	{
 		while (myfile.good())
 		{
-			getline(myfile, tokens[0], ',');
+			getline(myfile, tokens[0]);
+
+			tokenize(tokens[0], tokens, ',');
 
 			help = tokens[0];
 
@@ -392,10 +404,10 @@ void DATA_LAYER::showAccounts() {
 				{
 					help.erase(0, 1);
 				}
-				cout << "          Username: " << help;
+				cout << "          Username: " << tokens[0];
 
-				getline(myfile, tokens[1], ',');
-				getline(myfile, tokens[2], ',');
+				//getline(myfile, tokens[1], ',');
+				//getline(myfile, tokens[2], ',');
 
 				cout << " | Admin: ";
 
@@ -490,8 +502,8 @@ int DATA_LAYER::tokenize(string line, string* results, char delimiter) {
 
 void DATA_LAYER::managingAccountsFunction(int choice) {
 
-	ifstream myfile("acc.txt");
-	ofstream tmpFile("accTmp.txt");
+	//ifstream myfile("acc.txt");
+	//ofstream tmpFile("accTmp.txt");
 	string tokens[10], help, newUsername, badgeName, badges[20];
 	int counter = 0, checkCounter = 0, badgeChoice;
 	string line;
@@ -852,7 +864,6 @@ void DATA_LAYER::managingAccountsFunction(int choice) {
 			*/
 			break;
 		case 9:
-			myfile.close();
 			accManagmentMenu = false;
 
 			break;
@@ -860,7 +871,6 @@ void DATA_LAYER::managingAccountsFunction(int choice) {
 		default:
 			break;
 	}
-	myfile.close();
 }
 
 string DATA_LAYER::checkAcc(string username, string password)
