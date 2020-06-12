@@ -149,11 +149,13 @@
   <ItemGroup>
     <ClCompile Include="CATEGORY.cpp" />
     <ClCompile Include="data.cpp" />
+    <ClCompile Include="POST.cpp" />
     <ClCompile Include="pressentation.cpp" />
     <ClCompile Include="StringProject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data.h" />
+    <ClInclude Include="POST.h" />
     <ClInclude Include="presentation.h" />
     <ClInclude Include="struct.h" />
   </ItemGroup>
