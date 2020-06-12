@@ -4,13 +4,6 @@
 #include <vector>
 #include <string>
 
-struct CATEGORY 
-{
-	int id = 0;
-	std::string categoryName;
-	std::string author;
-	std::string dateOfCreation;
-};
 
 struct SESSION
 {
@@ -28,14 +21,18 @@ struct USER
 	std::string badges[20];
 };
 
-struct POST
-{
-	CATEGORY category;
+struct CATEGORY_ITEM {
+	int id = 0;
+	std::string name;
+};
+
+struct POST_ITEM {
 	int id = 0;
 	std::string title;
 	std::string author;
 	std::string text;
 	std::string dateOfCreation;
-	std::string tags[4];
+	int categoryId = 0;
+	std::string tags[5];
 };
 

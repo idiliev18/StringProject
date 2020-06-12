@@ -16,8 +16,7 @@ private:
 
 public:
 	DATA_LAYER data;
-	std::vector<POST> posts;
-	std::vector<USER> users;
+	
 	void login();
 	void Register();
 	void manageAccounts();

@@ -1,0 +1,10 @@
+1|t0|a0|txt0|2020-6-12|0|tag0~tag1~tag3~tag4~tag5~
+2|t1|a1|txt1|2020-6-12|1|tag0~tag1~tag3~tag4~tag5~
+3|t3|a3|txt3|2020-6-12|2|tag0~tag1~tag3~tag4~tag5~
+4|t4|a4|txt3|2020-6-12|2|tag0~tag1~tag3~tag4~tag5~
+5|t5|a5|txt3|2020-6-12|2|tag0~tag1~tag3~tag4~tag5~
+8|t8|a8|txt3|2020-6-12|2|tag0~tag1~tag3~tag4~tag5~
+9|Svinsko|Azis|Mesoto e vkusno|2020-6-12|9|meso~skara~NO_TAG~NO_TAG~NO_TAG~
+10|Mincho|Azis|Hapva Duneri|2020-6-12|5|duner~qmam~hapva~mincho~~
+11|Azis|Azis|Igrae kuchek|2020-6-12|2|kuchek~~~~~
+12|dfjksklfsd|Azis|sf;k;ljkfsd|2020-6-12|2|sdkd~~~~~

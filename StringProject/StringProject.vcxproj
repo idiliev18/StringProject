@@ -147,22 +147,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CATEGORY.cpp" />
     <ClCompile Include="data.cpp" />
+    <ClCompile Include="MENU.cpp" />
+    <ClCompile Include="POST.cpp" />
     <ClCompile Include="pressentation.cpp" />
     <ClCompile Include="StringProject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CATEGORY.h" />
     <ClInclude Include="data.h" />
+    <ClInclude Include="MENU.h" />
+    <ClInclude Include="POST.h" />
     <ClInclude Include="presentation.h" />
     <ClInclude Include="struct.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="1.txt" />
-    <Text Include="2.txt" />
-    <Text Include="3.txt" />
     <Text Include="acc.txt" />
-    <Text Include="categoryId.txt" />
-    <Text Include="Text.txt" />
+    <Text Include="Categories.txt" />
+    <Text Include="lastCatId.txt" />
+    <Text Include="lastPostId.txt" />
+    <Text Include="Posts.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

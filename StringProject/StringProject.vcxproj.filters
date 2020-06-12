@@ -24,6 +24,15 @@
     <ClCompile Include="pressentation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CATEGORY.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="POST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MENU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="struct.h">
@@ -35,24 +44,30 @@
     <ClInclude Include="presentation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CATEGORY.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="POST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MENU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Text.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="acc.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="categoryId.txt">
+    <Text Include="Categories.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="1.txt">
+    <Text Include="lastCatId.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="2.txt">
+    <Text Include="lastPostId.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="3.txt">
+    <Text Include="Posts.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
