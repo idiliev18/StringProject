@@ -8,6 +8,7 @@
 struct SESSION
 {
 	bool logged;
+	std::string badges[10];
 	std::string name;
 	int currCategory;
 };

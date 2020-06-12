@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include "data.h"
+#include "MENU.h"
 using namespace std;
 
 void PRESENTATION_LAYER::Register() {
@@ -68,7 +69,7 @@ void PRESENTATION_LAYER::login() {
 		}
 		if (data.checkAcc(username, password) == "1")
 		{
-
+			manageAccounts();
 		}
 		else
 		{
