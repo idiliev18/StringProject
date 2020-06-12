@@ -44,6 +44,9 @@
     <ClInclude Include="presentation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CATEGORY.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="POST.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,9 +57,6 @@
   <ItemGroup>
     <Text Include="acc.txt">
       <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="CATEGORY.h">
-      <Filter>Header Files</Filter>
     </Text>
     <Text Include="Categories.txt">
       <Filter>Resource Files</Filter>

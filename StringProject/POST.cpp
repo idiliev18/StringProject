@@ -8,12 +8,6 @@
 #include "POST.h"
 using namespace std;
 
-
-POST::POST()
-{
-	cat.loadCategoryData();
-}
-
 string POST::getTodaysDate()
 {
 	time_t t = time(NULL);
@@ -57,6 +51,7 @@ int POST::getPostIdByTitle(string title)
 			return posts[i].id;
 		}
 	}
+	return -1;
 }
 
 int POST::getIndexById(int id)
@@ -65,7 +60,7 @@ int POST::getIndexById(int id)
 	{
 		if (posts[i].id == id)
 		{
-			return i;
+			return (int)i;
 		}
 	}
 	return -1;
@@ -222,4 +217,3 @@ vector<POST_ITEM> POST::filterByCategory(string catName)
 	}
 	return result;
 }
-

@@ -14,8 +14,13 @@ public:
 	vector<POST_ITEM> posts;
 
 
-	POST();
+	POST()
+	{
+		cat.loadCategoryData();
+	}
+
 	string getTodaysDate();
+
 	void plusPlusId(int);
 	int getPostIdByTitle(string);
 	int getIndexById(int);

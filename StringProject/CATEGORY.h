@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -11,13 +12,30 @@ public:
 	vector<CATEGORY_ITEM> categories;
 
 	void plusPlusId(int);
+
 	int getIndexById(int);
+
+
 	int getLastCatId();
+
+
 	void loadCategoryData();
-	int getCatIdByName(string);
-	void createCategory(string);
-	void saveCatData(int);
-	void deleteCategory(string);
+
+
+	int getCatIdByName(string catName);
+
+
+	void createCategory(string catName);
+
+
+	void saveCatData(int index);
+
+
+	void deleteCategory(string catName);
+
+
 	void saveDeleted();
+
+
 
 };

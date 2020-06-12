@@ -6,3 +6,4 @@
 8|Praznikov|
 9|Praseta|
 10|NaLukanki|
+11|Bomba|

@@ -24,7 +24,7 @@ int CATEGORY::getIndexById(int id)
 	{
 		if (categories[i].id == id)
 		{
-			return i;
+			return (int)i;
 		}
 	}
 	return -1;
@@ -129,4 +129,3 @@ void CATEGORY::saveDeleted()
 		}
 	}
 }
-
