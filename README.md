@@ -11,4 +11,4 @@ This is our C++ string project. We made a forum where people can post in differe
 
 ## Documentation and Presentation
 
-You can find the presentation and the documentation in this [link](https://codingburgas-my.sharepoint.com/personal/idiliev18_codingburgas_bg/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fidiliev18%5Fcodingburgas%5Fbg%2FDocuments%2FGitHub%5FPart2)
+You can find the presentation and the documentation in this [link](https://codingburgas-my.sharepoint.com/:f:/g/personal/idiliev18_codingburgas_bg/Esgl__wScw5LiQqJnoLVQ18B65V0oZ0PjdG6sa000NBk4Q?e=dJIbrr)
