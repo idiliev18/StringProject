@@ -37,22 +37,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Text.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="acc.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="categoryId.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="1.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="2.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="3.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
