@@ -24,6 +24,9 @@
     <ClCompile Include="pressentation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CATEGORY.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="struct.h">
@@ -39,6 +42,9 @@
   <ItemGroup>
     <Text Include="acc.txt">
       <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="CATEGORY.h">
+      <Filter>Header Files</Filter>
     </Text>
   </ItemGroup>
 </Project>

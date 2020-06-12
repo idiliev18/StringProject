@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CATEGORY.cpp" />
     <ClCompile Include="data.cpp" />
     <ClCompile Include="pressentation.cpp" />
     <ClCompile Include="StringProject.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="acc.txt" />
+    <Text Include="CATEGORY.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
