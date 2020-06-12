@@ -161,7 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="acc.txt" />
+    <Text Include="Categories.txt" />
     <Text Include="CATEGORY.h" />
+    <Text Include="lastCatId.txt" />
+    <Text Include="lastPostId.txt" />
+    <Text Include="Posts.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

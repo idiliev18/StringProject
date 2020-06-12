@@ -52,5 +52,17 @@
     <Text Include="CATEGORY.h">
       <Filter>Header Files</Filter>
     </Text>
+    <Text Include="Categories.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="lastCatId.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="lastPostId.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Posts.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
