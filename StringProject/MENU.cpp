@@ -19,30 +19,37 @@ MENU::MENU()
 }
 
 void MENU::addPostMenu()
-{
-	string catName, title, text;
-	string tags[5];
-	short a;
-
-	cout << "Enter category name: ";
-	getline(cin, catName);
-
-	cout << "Title: ";
-	getline(cin, title);
-
-	cout << "Text: ";
-	getline(cin, text);
-
-	cout << "How many tags you want to add: ";
-	cin >> a;
-	for (short i = 0; i < a; i++)
 	{
-		cout << i << ") ";
-		cin >> tags[i];
+		string catName, title, text, name;
+		string tags[5];
+		short a;
+
+		cout << "Enter category name: ";
+		cin >> catName;
+
+		cout << "Title: ";
+		cin >> title;
+
+		cout << "Your Name: ";
+		cin >> name;
+
+		cout << "Text: ";
+		cin >> text;
+
+
+
+		cout << "How many tags you want to add: ";
+		cin >> a;
+		for (short i = 0; i < a; i++)
+		{
+			cout << i << ") ";
+			cin >> tags[i];
+		}
+
+		data.createPost(catName, title, name, text, tags, a);
 	}
 
-	data.createPost(catName, title, text, tags, a);
-}
+
 
 void MENU::addCategoryMenu()
 {

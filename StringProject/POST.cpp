@@ -126,7 +126,7 @@ void POST::loadPostData()
 
 }
 
-void POST::createPost(string catName, string title, string text, string* tags, short a)
+void POST::createPost(string catName, string title,string name, string text, string* tags, short a)
 {
 	POST_ITEM post;
 	int categoryId = cat.getCatIdByName(catName);
@@ -134,7 +134,8 @@ void POST::createPost(string catName, string title, string text, string* tags, s
 	post.id = getLastPostId();
 	post.title = title;
 	//post.title = title;
-	post.author = "Azis";
+	post.author = name;
+	//post.author = "Azis";
 	post.text = text;
 	post.dateOfCreation = getTodaysDate();
 	post.categoryId = categoryId;

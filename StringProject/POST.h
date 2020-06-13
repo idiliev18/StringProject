@@ -26,7 +26,7 @@ public:
 	int getIndexById(int);
 	int getLastPostId();
 	void loadPostData();
-	void createPost(string, string, string, string*, short);
+	void createPost(string, string, string, string, string*, short);
 	void savePostData(int index);
 	void deleteCategory(string title);
 	void saveDeleted();
