@@ -23,22 +23,25 @@ void MENU::addPostMenu()
 		string catName, title, text, name;
 		string tags[5];
 		short a;
+		cout << "                +-------------------------------+" << endl;
+		cout << "                |            Category           |" << endl;
+		cout << "                +-------------------------------+\n" << endl;
 
-		cout << "Enter category name: ";
+		cout << " Enter category name: ";
 		cin >> catName;
 
-		cout << "Title: ";
+		cout << " Title: ";
 		cin >> title;
 
-		cout << "Your Name: ";
+		cout << " Your Name: ";
 		cin >> name;
 
-		cout << "Text: ";
+		cout << " Text: ";
 		cin >> text;
 
 
 
-		cout << "How many tags you want to add: ";
+		cout << " How many tags you want to add: ";
 		cin >> a;
 		for (short i = 0; i < a; i++)
 		{
@@ -222,6 +225,9 @@ void MENU::showAllCategories()
 
 	for (size_t i = 0; i < filter.size(); i++)
 	{
+		cout << "		+------------------------+" << endl;
+		cout << "		|        Category        |" << endl;
+		cout << "		+------------------------+\n" << endl;
 		cout << "Category ID: " << filter[i].id;
 		cout << "Category Name: " << filter[i].name << endl;
 	}
@@ -481,11 +487,15 @@ void MENU::mainMenu()
 
 void MENU::filterMenu()
 {
-	cout << "Filter Menu:" << endl;
-	cout << "1) Sort by category" << endl;
-	cout << "2) Search by Name" << endl;
-	cout << "3) Search by Author" << endl;
-	cout << "9) Back" << endl;
+	cout << "               +-------------------------------+" << endl;
+	cout << "               |          Filter Menu          |" << endl;
+	cout << "               +-------------------------------+\n" << endl;
+	cout << " +-----------------------------------------------------------+" << endl;
+cout << "                         1.Sort by category     	 	 	  " << endl;
+cout << " 		2.Search by Name			            " << endl;
+cout << " 		 3.Search by Author			          " << endl;
+cout << " 		                9.Back					              " << endl;
+	cout << " +-----------------------------------------------------------+\n" << endl;
 	cout << "Choice: ";
 	int a;
 	cin >> a;
