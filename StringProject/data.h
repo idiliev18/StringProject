@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+//#include "MENU.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ private:
 
 
 public:
-
+	//MENU tate;
 	vector<USER> users;
 	short categoryId;
 	SESSION	sess;

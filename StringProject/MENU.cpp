@@ -159,14 +159,19 @@ void MENU::showAllPosts()
 	vector<POST_ITEM> filter = data.returnAll();
 
 	for (size_t i = 0; i < filter.size(); i++)
-	{
-		cout << "Title: " << filter[i].title;
-		cout << " Author: " << filter[i].author;
-		cout << " Text: " << filter[i].text;
-		cout << " Date of creation: " << filter[i].dateOfCreation;
-		cout << " Category: " << cat.getCatNameById(filter[i].categoryId) << endl;
+	{   cout << "              +---------------------------+" << endl;
+		cout << "              |            Post           |" << endl;
+		cout << "              +---------------------------+\n" << endl;
+
+		cout << " +--------------------------------------------------------------+" << endl;
+		cout << " |  Title: " << filter[i].title << endl;
+		cout << " |  Author: " << filter[i].author << endl;
+		cout << " |  Text: " << filter[i].text << endl;
+		cout << " |  Date of creation: " << filter[i].dateOfCreation << endl;
+		cout << " |  Category: " << cat.getCatNameById(filter[i].categoryId) << endl;
+		cout << " +--------------------------------------------------------------+\n" << endl;
 	}
-	cout << "Do yo want to post[Y/N]: ";
+	cout << " Do yo want to post[Y/N]: ";
 	char z;
 	cin >> z;
 	if (z == 'Y')
@@ -204,7 +209,7 @@ void MENU::showAllCategories()
 }
 
 void MENU::getlenghtAndPrint(int characters, string str, int specific) {
-	int length;
+	size_t length;
 	if (specific == 1)
 	{
 		if (str.length() % 2 == 0)
@@ -271,12 +276,12 @@ void MENU::welcomeMenu() {
 	cout << "Do you want to continue[Y/N]: ";
 	char da;
 	cin >> da;
-	if (da = 'Y')
+	if (da == 'Y')
 	{
 		system("cls");
 		mainMenu();
 	}
-	else if (da = 'N')
+	else if (da == 'N')
 	{
 		system("cls");
 		login();
@@ -379,6 +384,8 @@ void MENU::manageAccounts() {
 		cout << " |                3. Edit username                    |" << endl;
 		cout << " |                4. Remove/Add Admin                 |" << endl;
 		cout << " |                5. Manage badges                    |" << endl;
+		cout << " |                6. Delete Posts                     |" << endl;
+		cout << " |                7. Delete categories                |" << endl;
 		cout << " |                9. Go back                          |" << endl;
 		cout << " +----------------------------------------------------+\n" << endl;
 		cout << " Choose option: ";
