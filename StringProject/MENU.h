@@ -25,6 +25,7 @@ public:
 	void deleteCatMenu();
 	void deletePostMenu();
 	void showPostFromCategoryMenu();
+	void showAllPosts();
 	void login();
 	void Register();
 	void manageAccounts();

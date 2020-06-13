@@ -217,3 +217,14 @@ vector<POST_ITEM> POST::filterByCategory(string catName)
 	}
 	return result;
 }
+
+vector<POST_ITEM> POST::returnAll()
+{
+	vector<POST_ITEM> result;
+
+	for (size_t i = 0; i < posts.size(); i++)
+	{
+			result.push_back(posts[i]);
+	}
+	return result;
+}

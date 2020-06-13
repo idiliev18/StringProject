@@ -32,4 +32,8 @@ public:
 	void saveDeleted();
 	vector<POST_ITEM> filterByCategory(string catName);
 
+	vector<POST_ITEM> returnAll();
+
+
+
 };

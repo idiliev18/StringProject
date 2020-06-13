@@ -77,6 +77,19 @@ void MENU::showPostFromCategoryMenu()
 		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
 	}
 }
+void MENU::showAllPosts()
+{
+	vector<POST_ITEM> filter = data.returnAll();
+
+	for (size_t i = 0; i < filter.size(); i++)
+	{
+		cout << "Title: " << filter[i].title;
+		cout << " Author: " << filter[i].author;
+		cout << " Text: " << filter[i].text;
+		cout << " Date of creation: " << filter[i].dateOfCreation;
+		cout << " Category: " << cat.getCatNameById(filter[i].categoryId) << endl;
+	}
+}
 
 void MENU::getlenghtAndPrint(int characters, string str, int specific) {
 	int length;
@@ -104,7 +117,7 @@ void MENU::getlenghtAndPrint(int characters, string str, int specific) {
 
 void MENU::welcomeMenu() {
 	int i = 2;
-	string line,tokens[10];
+	string line, tokens[10];
 	fstream myfile("acc.txt");
 	if (myfile.is_open())
 	{
@@ -117,7 +130,7 @@ void MENU::welcomeMenu() {
 				mamo.tokenize(tokens[3], mamo.sess.badges, '^');
 			}
 		}
-		
+
 	}
 	cout << "\n             +-----------------------------------------+" << endl;
 	cout << "             |";
@@ -163,7 +176,7 @@ void MENU::Register() {
 	cin >> c_password;
 
 	cout << " ________________________________________________" << endl;
-	
+
 	while (c_password != password)
 	{
 		cout << "\n Invalid confirm password, please enter confirm pass again: "; cin >> c_password;
@@ -232,7 +245,7 @@ void MENU::manageAccounts() {
 		cout << " ______________________________________________________" << endl;
 		cout << endl;
 		cout << " +----------------------------------------------------+" << endl;
-		cout << " |                1. Show all accounts                |" << endl; 
+		cout << " |                1. Show all accounts                |" << endl;
 		cout << " |                2. Delete account                   |" << endl;
 		cout << " |                3. Edit username                    |" << endl;
 		cout << " |                4. Remove/Add Admin                 |" << endl;
@@ -251,7 +264,7 @@ void MENU::manageAccounts() {
 		}
 		cout << endl;
 	}
-	
+
 }
 
 void MENU::mainMenu() {
@@ -271,16 +284,16 @@ void MENU::mainMenu() {
 		cout << " +-----------------------------------------------------------+\n" << endl;
 		cout << " Choose option: ";
 		cin >> choice;
-		if (choice == 9)
+		switch (choice)
 		{
-			//go to menu
+			case 1:
+				showAllPosts();
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
 		}
-
-		else if (choice > 0 && choice < 2)
-		{
-			mamo.managingAccountsFunction(choice);
-		}
-		cout << endl;
 	}
 
 }
@@ -330,39 +343,39 @@ bool MENU::categoriesMenu()
 	return true;
 }
 
-void MENU::profileMenu() 
+void MENU::profileMenu()
 {
 	int choice;
 
-		cout << "\n             +-----------------------------------------+" << endl;
-		cout << "             |                 Username                |" << endl;
-		cout << "             +-----------------------------------------+" << endl;
-		cout << endl;
-		cout << " +------------------------------------+ " << endl;
-		cout << " |               Badges:              | " << endl;
-		cout << " |                                    | " << "       +---------------------+" << endl;
-		cout << " |                                    | " << "       |       9.Back        |" << endl;
-		cout << " |                                    | " << "       +---------------------+" << endl;
-		cout << " |                                    | " << endl;
-		cout << " |                                    | " << endl;
-		cout << " +------------------------------------+ \n" << endl;
-		cout << " Click 9 to back: "; cin >> choice;
-		
+	cout << "\n             +-----------------------------------------+" << endl;
+	cout << "             |                 Username                |" << endl;
+	cout << "             +-----------------------------------------+" << endl;
+	cout << endl;
+	cout << " +------------------------------------+ " << endl;
+	cout << " |               Badges:              | " << endl;
+	cout << " |                                    | " << "       +---------------------+" << endl;
+	cout << " |                                    | " << "       |       9.Back        |" << endl;
+	cout << " |                                    | " << "       +---------------------+" << endl;
+	cout << " |                                    | " << endl;
+	cout << " |                                    | " << endl;
+	cout << " +------------------------------------+ \n" << endl;
+	cout << " Click 9 to back: "; cin >> choice;
 
-		while (choice != 9) {
 
-			cout << "\n Incorrect input, please try again:"; cin >> choice;
+	while (choice != 9) {
 
-		}
+		cout << "\n Incorrect input, please try again:"; cin >> choice;
 
-		cout << "\n______________________________________________________________________________" << endl;
+	}
 
-		switch (choice) {
+	cout << "\n______________________________________________________________________________" << endl;
 
-			case 9:
-				break;
+	switch (choice) {
 
-		}
+		case 9:
+			break;
+
+	}
 
 }
 

@@ -1,3 +1,5 @@
 TEST1,TEST,0,obicham^test^,
 pesho,haka,0,Member^HAKA^,
 test,chalgata,1,Member^chalga^,
+
+mincho,slaninkov,0,Member^,

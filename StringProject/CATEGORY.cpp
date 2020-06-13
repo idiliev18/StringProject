@@ -129,3 +129,15 @@ void CATEGORY::saveDeleted()
 		}
 	}
 }
+
+string CATEGORY::getCatNameById(int id)
+{
+	for (size_t i = 0; i < categories.size(); i++)
+	{
+		if (categories[i].id == id)
+		{
+			return categories[i].name;
+		}
+	}
+	return "Wild Error";
+}

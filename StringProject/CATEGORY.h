@@ -36,6 +36,8 @@ public:
 
 	void saveDeleted();
 
+	string getCatNameById(int id);
+
 
 
 };
