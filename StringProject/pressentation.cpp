@@ -6,6 +6,7 @@
 #include <string>
 #include "data.h"
 #include "MENU.h"
+#include "POST.h"
 using namespace std;
 
 void PRESENTATION_LAYER::Register() {
@@ -224,3 +225,24 @@ void PRESENTATION_LAYER::profileMenu() {
 		}
 
 }
+
+
+void PRESENTATION_LAYER::adminMenu() {
+	int choice;
+	cout << "1. Manage Accounts" << endl << "2. Delete categories/posts";
+	cin >> choice;
+	if (choice==1)
+	{
+		manageAccounts();
+	}
+	else{
+		
+		cout << "1. Delete categories" << endl << "2. Delete posts" << endl << "choice: ";
+		cin >> choice;
+		if (choice==1)
+		{
+			//POST::deleteCategory();
+		}
+	}
+}
+

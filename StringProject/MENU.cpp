@@ -86,7 +86,17 @@ void MENU::showPostFromCategoryMenu()
 
 	for (size_t i = 0; i < filter.size(); i++)
 	{
-		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
+		cout << "                +-------------------------------+" << endl;
+		cout << "                |            Category           |" << endl;
+		cout << "                +-------------------------------+\n" << endl;
+		cout << " +----------------------------------------------------------------+" << endl;
+		cout << " |       ID: " << filter[i].id << endl;
+		cout << " |       Title: " << filter[i].title << endl;
+		cout << " |       Author: " << filter[i].author << endl;
+		cout << " |       Text: " << filter[i].text << endl;
+		cout << " |       Date: " << filter[i].dateOfCreation  << endl;
+		cout << " |       Category: " << cat.getCatNameById(filter[i].categoryId) << endl;
+		cout << " +----------------------------------------------------------------+\n" << endl;
 	}
 	cout << "Do yo want to post[Y/N]: ";
 	char z;
@@ -105,16 +115,26 @@ void MENU::showPostFromCategoryMenu()
 void MENU::showPostFromAuthorMenu()
 {
 	string author;
-	cout << "Enter Author: ";
+	cout << " Enter Author: ";
 	cin >> author;
 	vector<POST_ITEM> filter = data.filterByAuthor(author);
 
 
 	for (size_t i = 0; i < filter.size(); i++)
-	{
-		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
+	{	
+		cout << "              +-----------------------------+" << endl;
+		cout << "              |            Posts            |" << endl;
+		cout << "              +-----------------------------+\n" << endl;
+		cout << " +----------------------------------------------------------------+" << endl;
+		cout << " |      ID: " << filter[i].id << endl;
+		cout << " |      Title: " << filter[i].title << endl;
+		cout << " |      Author: " << filter[i].author << endl;
+		cout << " |      Text: " << filter[i].text << endl;
+		cout << " |      Date: " << filter[i].dateOfCreation << endl;
+		cout << " |      Category:" << cat.getCatNameById(filter[i].categoryId) << endl; 
+		cout << " +----------------------------------------------------------------+\n" << endl;
 	}
-	cout << "Do yo want to post[Y/N]: ";
+	cout << " Do yo want to post[Y/N]: ";
 	char z;
 	cin >> z;
 	if (z == 'Y')
@@ -138,7 +158,18 @@ void MENU::showPostWithSpecTitle()
 
 	for (size_t i = 0; i < filter.size(); i++)
 	{
-		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
+		cout << "               +-----------------------------+" << endl;
+		cout << "               |            Posts            |" << endl;
+		cout << "               +-----------------------------+\n" << endl;
+		cout << " +----------------------------------------------------------------+" << endl;
+		cout << " |        ID: " << filter[i].id << endl;
+		cout << " |        Title: " << filter[i].title << endl;
+		cout << " |        Author: " << filter[i].author << endl;
+		cout << " |        Text: " << filter[i].text << endl;
+		cout << " |        Date: " << filter[i].dateOfCreation;
+		cout << " |        Category: " << cat.getCatNameById(filter[i].categoryId) << endl; 
+		cout << " +----------------------------------------------------------------+\n" << endl;
+
 	}
 	cout << "Do yo want to post[Y/N]: ";
 	char z;
@@ -411,10 +442,10 @@ void MENU::mainMenu()
 	while (accManagmentMenu)
 	{
 		userExist = false;
-		cout << "                      +-------------------+" << endl;
-		cout << "                      |     Main Menu     |" << endl;
-		cout << "                      +                   +" << endl;
-		cout << " +---------------------                   ------------------------------+" << endl;
+		cout << "                           +-------------------+" << endl;
+		cout << "                           |     Main Menu     |" << endl;
+		cout << "                           +                   +" << endl;
+		cout << " +--------------------------                   -------------------------+" << endl;
 		cout << " |                                                                      |" << endl;
 		cout << " |          1.                   2.              3.            9.       |" << endl;
 		cout << " |    Show all posts      Show categories      Filter        Back	     |" << endl;

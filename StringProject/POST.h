@@ -6,6 +6,7 @@
 #include <string>
 #include "struct.h"
 #include "CATEGORY.h"
+#include "presentation.h"
 using namespace std;
 
 class POST {

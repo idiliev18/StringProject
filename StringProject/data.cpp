@@ -781,11 +781,6 @@ void DATA_LAYER::managingAccountsFunction(int choice) {
 			}
 			*/
 			break;
-		case 6:
-
-			break;
-		case 7:
-			break;
 		case 9:
 			accManagmentMenu = false;
 
