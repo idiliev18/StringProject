@@ -34,6 +34,10 @@ public:
 
 	vector<POST_ITEM> returnAll();
 
+	vector<POST_ITEM> filterByAuthor(string catName);
+
+	vector<POST_ITEM> filterByTitle(string author);
+
 
 
 };

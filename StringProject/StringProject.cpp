@@ -15,6 +15,7 @@ using namespace std;
 int main()
 {
 	MENU menu;
+	bool doShow;
 	menu.login();
 
 }

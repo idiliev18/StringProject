@@ -8,6 +8,7 @@
 #include "MENU.h"
 #include "POST.h"
 #include "data.h"
+
 using namespace std;
 
 
@@ -42,6 +43,7 @@ void MENU::addPostMenu()
 
 	data.createPost(catName, title, text, tags, a);
 }
+
 void MENU::addCategoryMenu()
 {
 	string catName;
@@ -50,6 +52,7 @@ void MENU::addCategoryMenu()
 	cat.createCategory(catName);
 
 }
+
 void MENU::deleteCatMenu()
 {
 	string catName;
@@ -57,6 +60,7 @@ void MENU::deleteCatMenu()
 	getline(cin, catName);
 	cat.deleteCategory(catName);
 }
+
 void MENU::deletePostMenu()
 {
 	string title;
@@ -64,11 +68,12 @@ void MENU::deletePostMenu()
 	getline(cin, title);
 	data.deleteCategory(title);
 }
+
 void MENU::showPostFromCategoryMenu()
 {
 	string catName;
 	cout << "Enter Category: ";
-	getline(cin, catName);
+	cin >> catName;
 	vector<POST_ITEM> filter = data.filterByCategory(catName);
 
 
@@ -76,7 +81,72 @@ void MENU::showPostFromCategoryMenu()
 	{
 		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
 	}
+	cout << "Do yo want to post[Y/N]: ";
+	char z;
+	cin >> z;
+	if (z == 'Y')
+	{
+		addPostMenu();
+	}
+	else
+	{
+		system("cls");
+		mainMenu();
+	}
 }
+
+void MENU::showPostFromAuthorMenu()
+{
+	string author;
+	cout << "Enter Author: ";
+	cin >> author;
+	vector<POST_ITEM> filter = data.filterByAuthor(author);
+
+
+	for (size_t i = 0; i < filter.size(); i++)
+	{
+		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
+	}
+	cout << "Do yo want to post[Y/N]: ";
+	char z;
+	cin >> z;
+	if (z == 'Y')
+	{
+		addPostMenu();
+	}
+	else
+	{
+		system("cls");
+		mainMenu();
+	}
+}
+
+void MENU::showPostWithSpecTitle()
+{
+	string author;
+	cout << "Enter title: ";
+	cin >> author;
+	vector<POST_ITEM> filter = data.filterByTitle(author);
+
+
+	for (size_t i = 0; i < filter.size(); i++)
+	{
+		cout << "ID: " << filter[i].id << " " << "Title: " << filter[i].title << " " << "Author: " << filter[i].author << " " << "Text: " << filter[i].text << " " << "Date: " << filter[i].dateOfCreation << filter[i].categoryId << endl;
+	}
+	cout << "Do yo want to post[Y/N]: ";
+	char z;
+	cin >> z;
+	if (z == 'Y')
+	{
+		addPostMenu();
+	}
+	else
+	{
+		system("cls");
+		mainMenu();
+	}
+}
+
 void MENU::showAllPosts()
 {
 	vector<POST_ITEM> filter = data.returnAll();
@@ -88,6 +158,41 @@ void MENU::showAllPosts()
 		cout << " Text: " << filter[i].text;
 		cout << " Date of creation: " << filter[i].dateOfCreation;
 		cout << " Category: " << cat.getCatNameById(filter[i].categoryId) << endl;
+	}
+	cout << "Do yo want to post[Y/N]: ";
+	char z;
+	cin >> z;
+	if (z == 'Y')
+	{
+		addPostMenu();
+	}
+	else
+	{
+		system("cls");
+		mainMenu();
+	}
+}
+
+void MENU::showAllCategories()
+{
+	vector<CATEGORY_ITEM> filter = cat.returnAll();
+
+	for (size_t i = 0; i < filter.size(); i++)
+	{
+		cout << "Category ID: " << filter[i].id;
+		cout << "Category Name: " << filter[i].name << endl;
+	}
+	cout << "Do yo want to post[Y/N]: ";
+	char z;
+	cin >> z;
+	if (z == 'Y')
+	{
+		addPostMenu();
+	}
+	else
+	{
+		system("cls");
+		mainMenu();
 	}
 }
 
@@ -156,7 +261,21 @@ void MENU::welcomeMenu() {
 	}
 	cout << " |                                    | " << endl;
 	cout << " +------------------------------------+ \n" << endl;
-	mainMenu();
+	cout << "Do you want to continue[Y/N]: ";
+	char da;
+	cin >> da;
+	if (da = 'Y')
+	{
+		system("cls");
+		mainMenu();
+	}
+	else if (da = 'N')
+	{
+		system("cls");
+		login();
+	}
+
+
 }
 
 void MENU::Register() {
@@ -222,15 +341,18 @@ void MENU::login() {
 		mamo.sess.logged = true;
 		if (mamo.checkAcc(username, password) == "1")
 		{
+			system("cls");
 			manageAccounts();
 		}
 		else
 		{
+			system("cls");
 			welcomeMenu();
 		}
 	}
 	else if (character == 'N')
 	{
+		system("cls");
 		cout << " Please first register before login!" << endl;
 		Register();
 	}
@@ -267,115 +389,122 @@ void MENU::manageAccounts() {
 
 }
 
-void MENU::mainMenu() {
+void MENU::mainMenu()
+{
 	int choice;
 	bool accManagmentMenu = true, userExist = false;
+	bool foo = false;
 	while (accManagmentMenu)
 	{
 		userExist = false;
 		cout << "                      +-------------------+" << endl;
 		cout << "                      |     Main Menu     |" << endl;
 		cout << "                      +                   +" << endl;
-		cout << " +---------------------                   -------------------+" << endl;
-		cout << " |                                                           |" << endl;
-		cout << " |          1.                   2.                 9.       |" << endl;
-		cout << " |    Show all posts      Show categories        Go back     |" << endl;
-		cout << " |                                                           |" << endl;
-		cout << " +-----------------------------------------------------------+\n" << endl;
+		cout << " +---------------------                   ------------------------------+" << endl;
+		cout << " |                                                                      |" << endl;
+		cout << " |          1.                   2.              3.            9.       |" << endl;
+		cout << " |    Show all posts      Show categories      Filter        Back	     |" << endl;
+		cout << " |															             |" << endl;
+		cout << " +----------------------------------------------------------------------+\n" << endl;
 		cout << " Choose option: ";
 		cin >> choice;
+
 		switch (choice)
 		{
 			case 1:
+				system("CLS");
 				showAllPosts();
 				break;
 			case 2:
+				system("CLS");
+				showAllCategories();
 				break;
 			case 3:
+				system("CLS");
+				filterMenu();
+				break;
+			case 9:
+				system("CLS");
+				login();
+
 				break;
 		}
-	}
 
+
+	}
 }
 
-bool MENU::categoriesMenu()
+void MENU::filterMenu()
 {
-	int choice;
+	cout << "Filter Menu:" << endl;
+	cout << "1) Sort by category" << endl;
+	cout << "2) Search by Name" << endl;
+	cout << "3) Search by Author" << endl;
+	cout << "9) Back" << endl;
+	cout << "Choice: ";
+	int a;
+	cin >> a;
 
-	cout << "                   +-------------------------+" << endl;
-	cout << "                   |     Categories Menu     |" << endl;
-	cout << "                   +-------------------------+" << endl;
-	cout << endl;
-	cout << " +-----------------------------------------------------------+" << endl;
-	cout << " |                                                           |" << endl;
-	cout << " |                   1.                                      |" << endl;
-	cout << " |                   2.                                      |" << endl;
-	cout << " |                   3.                                      |" << endl;
-	cout << " |                   4.                                      |" << endl;
-	cout << " |                   5.                                      |" << endl;
-	cout << " |                   9.Exit                                  |" << endl;
-	cout << " |                                                           |" << endl;
-	cout << " +-----------------------------------------------------------+\n" << endl;
-	cout << " Choose option: ";
-	cin >> choice;
-
-	while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 9) {
-
-		cout << "\n Incorect input, please try again: "; cin >> choice;
-
-	}
-
-	switch (choice) {
-
-		case 1: return true;
+	switch (a)
+	{
+		case 1:
+			showPostFromCategoryMenu();
 			break;
-		case 2: return true;
+		case 2:
+			showPostWithSpecTitle();
 			break;
-		case 3: return true;
+		case 3:
+			showPostFromAuthorMenu();
 			break;
-		case 4: return true;
-			break;
-		case 5: return true;
-			break;
-		case 9: return false;
-			break;
-	}
-	return true;
-}
-
-void MENU::profileMenu()
-{
-	int choice;
-
-	cout << "\n             +-----------------------------------------+" << endl;
-	cout << "             |                 Username                |" << endl;
-	cout << "             +-----------------------------------------+" << endl;
-	cout << endl;
-	cout << " +------------------------------------+ " << endl;
-	cout << " |               Badges:              | " << endl;
-	cout << " |                                    | " << "       +---------------------+" << endl;
-	cout << " |                                    | " << "       |       9.Back        |" << endl;
-	cout << " |                                    | " << "       +---------------------+" << endl;
-	cout << " |                                    | " << endl;
-	cout << " |                                    | " << endl;
-	cout << " +------------------------------------+ \n" << endl;
-	cout << " Click 9 to back: "; cin >> choice;
-
-
-	while (choice != 9) {
-
-		cout << "\n Incorrect input, please try again:"; cin >> choice;
-
-	}
-
-	cout << "\n______________________________________________________________________________" << endl;
-
-	switch (choice) {
-
 		case 9:
+
 			break;
-
 	}
-
 }
+//bool MENU::categoriesMenu()
+//{
+//	int choice;
+//
+//	cout << "                   +-------------------------+" << endl;
+//	cout << "                   |     Categories Menu     |" << endl;
+//	cout << "                   +-------------------------+" << endl;
+//	cout << endl;
+//	cout << " +-----------------------------------------------------------+" << endl;
+//	cout << " |                                                           |" << endl;
+//	cout << " |                   1.                                      |" << endl;
+//	cout << " |                   2.                                      |" << endl;
+//	cout << " |                   3.                                      |" << endl;
+//	cout << " |                   4.                                      |" << endl;
+//	cout << " |                   5.                                      |" << endl;
+//	cout << " |                   9.Exit                                  |" << endl;
+//	cout << " |                                                           |" << endl;
+//	cout << " +-----------------------------------------------------------+\n" << endl;
+//	cout << " Choose option: ";
+//	cin >> choice;
+//
+//	while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 9) {
+//
+//		cout << "\n Incorect input, please try again: "; cin >> choice;
+//
+//	}
+//
+//	switch (choice) {
+//
+//		case 1: return true;
+//			break;
+//		case 2: return true;
+//			break;
+//		case 3: return true;
+//			break;
+//		case 4: return true;
+//			break;
+//		case 5: return true;
+//			break;
+//		case 9: return false;
+//			break;
+//	}
+//	return true;
+//}
+
+
 

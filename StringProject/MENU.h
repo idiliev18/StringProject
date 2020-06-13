@@ -26,11 +26,16 @@ public:
 	void deletePostMenu();
 	void showPostFromCategoryMenu();
 	void showAllPosts();
+	void showAllCategories();
 	void login();
 	void Register();
 	void manageAccounts();
 	void mainMenu();
+	void filterMenu();
 	bool categoriesMenu();
 	void profileMenu();
+	void showPostFromAuthorMenu();
+
+	void showPostWithSpecTitle();
 
 };

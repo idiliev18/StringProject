@@ -133,7 +133,7 @@ void POST::createPost(string catName, string title, string text, string* tags, s
 
 	post.id = getLastPostId();
 	post.title = title;
-	//post.author = author;
+	//post.title = title;
 	post.author = "Azis";
 	post.text = text;
 	post.dateOfCreation = getTodaysDate();
@@ -224,7 +224,39 @@ vector<POST_ITEM> POST::returnAll()
 
 	for (size_t i = 0; i < posts.size(); i++)
 	{
+		result.push_back(posts[i]);
+	}
+	return result;
+}
+
+vector<POST_ITEM> POST::filterByAuthor(string author)
+{
+
+
+	vector<POST_ITEM> result;
+
+	for (size_t i = 0; i < posts.size(); i++)
+	{
+		if (posts[i].author == author)
+		{
 			result.push_back(posts[i]);
+		}
+	}
+	return result;
+}
+
+vector<POST_ITEM> POST::filterByTitle(string title)
+{
+
+
+	vector<POST_ITEM> result;
+
+	for (size_t i = 0; i < posts.size(); i++)
+	{
+		if (posts[i].title == title)
+		{
+			result.push_back(posts[i]);
+		}
 	}
 	return result;
 }

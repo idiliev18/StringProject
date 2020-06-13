@@ -141,3 +141,13 @@ string CATEGORY::getCatNameById(int id)
 	}
 	return "Wild Error";
 }
+
+vector<CATEGORY_ITEM> CATEGORY::returnAll()
+{
+	vector<CATEGORY_ITEM> result;
+	for (size_t i = 0; i < categories.size(); i++)
+	{
+		result.push_back(categories[i]);
+	}
+	return result;
+}

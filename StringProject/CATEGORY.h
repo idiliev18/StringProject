@@ -38,6 +38,8 @@ public:
 
 	string getCatNameById(int id);
 
+	vector<CATEGORY_ITEM> returnAll();
+
 
 
 };
